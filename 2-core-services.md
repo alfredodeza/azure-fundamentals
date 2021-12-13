@@ -1,6 +1,7 @@
 LP: https://docs.microsoft.com/en-us/learn/paths/az-900-describe-core-azure-services/
 
 ## Azure Compute Services
+LM: https://docs.microsoft.com/en-us/learn/modules/azure-compute-fundamentals/
 
 ### Virtual Machines (VMs)
 
@@ -96,7 +97,10 @@ Use it because:
 Reduce costs by bringing your own licenses. Available with no extra costs for existing MSFT 365 license.
 Save on compute by buying 1 or 3 year Azure reserved virtual machine instances.
 
-## Azure Virtual Network fundamentals
+## Azure Networking 
+LM https://docs.microsoft.com/en-us/learn/modules/azure-networking-fundamentals/
+
+### Azure Virtual Network fundamentals
 
 * Isolate
 * Communicate over the internet
@@ -168,5 +172,255 @@ Use it for:
 **ExpressRoute Failover**: If an ExpressRoute connection fails, connectivity can fail over to traffic over the internet with the VPN
 **Zone-redundant gateways** For regions that support AZs, VPNs can be deployed with zone-redundancy. Requires a Standard public IP (not a **basic** IP)
 
-
 ## Azure ExpressRoute Fundamentals
+LM https://docs.microsoft.com/en-us/learn/modules/azure-networking-fundamentals/express-route-fundamentals
+
+Definition: Extends/connects your on-premise network into Azure over a private connection (**not** over the internet)
+
+Connection types:
+
+* Point-to-Point (between nodes) (L2)
+* Any-to-Any (VPN) (L3)
+
+Features:
+
+* Fast (over private fiber optic)
+* Low latency
+* Higher security
+* Global connectivity with ExpressRoute premium 
+* Reduntant + Dynamic Routing
+* Uptime SLA
+
+### Redundancy
+
+Only for Layer 3 connections. Redundancy uses multiple devices for HA
+
+### Connectiviy to cloud services
+
+Direct connection to:
+
+* Compute services like: VMs
+* Cloud services like Cosmos DB or Storage
+
+### Dynamic Routing
+
+Uses Border Gateway Protocol (BGP) routing protocol, allowing dymaic routing between on-premise and Azure services
+
+
+### Connectivity Models
+
+* **Cloud Exchange**: From an ISP/Datacenter to Azure
+* **Point-to-Point**: From on-premise to Azure
+* **Any-to-Any**: WAN with Azure with L3 connectivity. Access Azure like any private service in a WAN
+
+## Azure Storage Services
+LM https://docs.microsoft.com/en-us/learn/modules/azure-storage-fundamentals/
+
+### Disk Storage
+
+Definition: Provides (virtual) disks for Azure VMs. Similar like on-premise server with disks.
+
+Types:
+
+* SSDs
+* HDDs
+* Premium SSDs
+* Ultra Disks
+
+ZERO% annualized failure rate.
+
+### Blob storage
+
+Definition: Unstructured object storage for massive amounts of data.
+
+Features:
+* Can be readched anywhere from http
+* Does not require space/disk management
+
+Use it for:
+
+* Serve assets over to a browser
+* Store files for distributed access
+* Video+Audio streaming
+* Disaster recovery backups
+* Analyzis for on-premise Azure-hosted services
+* Storing up to 8TB of data for VMs
+
+Blobs are stored in containers which are owned by an account:
+
+Account -> Many containers (e.g. movies/pictures) -> many blobs (files)
+
+### Azure files
+
+Definition: Is a file share service in the cloud available via SMB (Server Message Block) and NFS (preview) (Network File System). 
+
+File shares can be mounted on Windows, Linux and OSX at the same time.
+
+Features:
+
+* Data encrypted at rest.
+* Access files from anywhere in the world via a URL
+* Provide temporary access with a SAS (Shared Access Signature)
+
+
+Use it for: 
+
+* Seamless support for apps that use SMB that need to be migrated to the cloud
+* Store, retrieve, and share configuration files that can be accessed by multiple VMs
+* Write metrics, crash dumps, or diagnostic logs, so that they can be analyzed later
+
+
+### Blob Access Tiers
+
+Definition: Allows organizing data depending on access frequency and retention period.
+
+* **Hot access tier**: Frequently accessed data like website assets
+* **Cool access tier**: Infrequent access stored for at least 30 days
+* **Archive access tier**: Almost never accessed and stored for at least 180 days, like backups
+
+Service attributes:
+
+* Hot + Cool tiers are set at the account level. Acrhive isn't available at the account level.
+* All tiers can be set before or after uploading at the blob level.
+* Archive has the lowest cost, but it is more expensive to rehydrate and access data.
+
+Tier cost
+
+| Tier | SLA | Access Cost | Storage Cost |
+| -- | -- | -- | -- |
+| Hot | High | Low | High |
+| Cold | Medium | High | Low | 
+| Archive | - | Highest | Lowest |
+
+## Azure Database and analytics
+LM https://docs.microsoft.com/en-us/learn/modules/azure-database-fundamentals/
+
+### Azure Cosmos DB
+
+Definition: A globally distributed, multi-model database service. 
+
+Although usually meant for Key/Value store, it abstracts out several APIs providing support for:
+
+* SQL
+* MongoDB
+* Cassandra
+* Tables
+* Gremlin
+
+### Azure SQL Database
+
+Definition: Relational DB based on the latest stable version of Microsoft SQL Server database.
+
+Features:
+
+* HA: 99.99%
+* PaaS: Update, patching, backups, and monitoring are all managed
+* Fully managed: No need to manage infrastructure or the OS
+* Can process relational and non-relational data like graphs, JSON, and XML
+
+**Key differences from SQL Managed Database**:
+
+* Offers _less_ options that are available in Azure SQL Managed Database
+
+See: https://docs.microsoft.com/en-us/azure/azure-sql/database/features-comparison
+
+### Azure SQL Managed Instance
+
+Definition:  Similar to SQL Database. Relational DB based on the latest stable version of Microsoft SQL Server database.
+
+Features:
+
+* HA: 99.99%
+* PaaS: Update, patching, backups, and monitoring are all managed
+* Fully managed: No need to manage infrastructure or the OS
+* Can process relational and non-relational data like graphs, JSON, and XML
+* Can use the Azure Database Migration Service (DMS) or native backup/restore
+
+**Key differences from SQL Database**:
+* Offers _more_ options that aren't available in Azure SQL Database
+* Can manually initiate backups
+* Has access to all built-in functions
+* Collation choices at instance creation
+* Cross-database name queries and transactions
+* Database Mail
+
+See: https://docs.microsoft.com/en-us/azure/azure-sql/database/features-comparison
+
+### Azure Database for MySQL
+
+Definition: Relational DB based on MySQL community edition
+
+Features:
+
+* HA at no additional cost
+* Automatic backups + up to 35 days for a point-in-time restore 
+* Scale as needed within seconds
+* Fully managed
+* Several tiers offered
+
+### Azure Database for PostgreSQL
+
+Definition: Relational DB based on PostgreSQL database engine
+
+Features:
+
+* HA at no additional cost
+* Automatic backups + up to 35 days for a point-in-time restore 
+* Scale as needed within seconds
+* Fully managed
+* SSL encryption between client and server communications
+
+Available in two deployment options:
+
+**Single Server**
+* 3 tiers: Basic, General, and Memory Optimized
+* Dynamic scaling
+
+**Hyperscale (Citus)**
+* Horizontally scalling using sharding
+* Query parallelization across server for fast responses on large datasets
+* Made for applications that need greater scale+performance for 100GB of data or more
+* Supports multi-tenant, real-time analytics, high (transactional) throughput
+* Standard connection + minimal changes 
+
+### Azure Synapse Analytics
+
+Definition: Limitless analytics service for big data analytics.
+
+Features:
+
+* Serverless queries or provisioned resources at scale
+* Unified experience to ingest+prepare+manage+serve data
+* Data warehousing
+* Big data analytics
+
+### Azure HDInsight
+
+Definition: Fully managed analytics service
+
+Features:
+
+* Works with Apache Spark, Apache Hadoop, Apache Kafka, Apache HBase, Apache Storm
+* Supports Machine Learning Services
+* ETL support
+* Data Warehousing
+
+### Azure Delta Lake Analytics
+
+Definition: Simplified on-demand analytics job service for big-data
+
+Features:
+
+* Handle jobs of any scale
+* Configure analytics power instantly
+* Pay for when the job is running (cost effective)
+
+
+### Azure Databricks
+
+Definition: Apache Spark environment to build AI solutions and insights from data.
+
+Features:
+
+* Support for Python, Scala, Java, and SQL
+* Support for data science frameworks like TensorFlow, PyTorch, and Scikit-Learn
