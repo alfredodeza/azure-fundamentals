@@ -37,11 +37,15 @@ Service handles:
 
 Definition: Serverless code that does not require managing the underlying platform.
 
-Use them for
+Similar to Azure Logic Apps. Both are serverless.
+
+Use them for:
 
 * Running on a timer
 * Trigger over HTTP
 * With queues.
+
+Key difference with Azure Logic Apps: Functions requires code and is not an orchestration service
 
 ### When to use VMs
 
@@ -71,13 +75,15 @@ Batch can:
 
 ### Azure Logic Apps
 
-Definition: It executes workflows, designed to automate business scenario from predefined logic blocks
+Definition: It executes workflows, designed to automate (orchestrate) business scenario from predefined logic blocks
 
 Similar to Functions. Both can get triggered with logic based on event.
 
 Workflows are persisted in JSON. 
 
 Declarative and stateful. Runs only in the cloud.
+
+Key difference with Azure Functions: Logic Apps don't require code, and it is an orchestration service
 
 ### Azure Virtual Desktop
 
