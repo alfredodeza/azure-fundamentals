@@ -116,7 +116,9 @@ LM https://docs.microsoft.com/en-us/learn/modules/azure-networking-fundamentals/
 * Connect virtual networks
 
 **Internet communications**: VMs can connect to the internet _by default_
+
 **Communicate between Azure resources**: with Virtual networks, or service endpoints (from an Azure resource)
+
 **Communicate with on-premise**: 
  * via Point-to-site (typical VPN)
  * Site-to-site (everything appears on the same network)
@@ -173,10 +175,10 @@ Use it for:
 
 ### HA for VPN gateways
 
-**Active/Standby**: By default VPN gateways are deployed as two instances. Automatic failover. Connections can be interrupted
-**Active/Active**: Use with Border Gateway Protocol, create each VPN with unique IPs but separate tunnels from on-premise device.
-**ExpressRoute Failover**: If an ExpressRoute connection fails, connectivity can fail over to traffic over the internet with the VPN
-**Zone-redundant gateways** For regions that support AZs, VPNs can be deployed with zone-redundancy. Requires a Standard public IP (not a **basic** IP)
+* **Active/Standby**: By default VPN gateways are deployed as two instances. Automatic failover. Connections can be interrupted
+* **Active/Active**: Use with Border Gateway Protocol, create each VPN with unique IPs but separate tunnels from on-premise device.
+* **ExpressRoute Failover**: If an ExpressRoute connection fails, connectivity can fail over to traffic over the internet with the VPN
+* **Zone-redundant gateways** For regions that support AZs, VPNs can be deployed with zone-redundancy. Requires a Standard public IP (not a **basic** IP)
 
 ## Azure ExpressRoute Fundamentals
 LM https://docs.microsoft.com/en-us/learn/modules/azure-networking-fundamentals/express-route-fundamentals
