@@ -29,7 +29,7 @@ Features:
 * Push firmware updates to devices
 * Provides starter templates for common scenarios
 
-Key difference with IoT Central: Less control, more managed (dashboard included). 
+Key difference with IoT Central: Less control, more managed (dashboard included).
 
 ### Azure Sphere
 
@@ -99,7 +99,7 @@ Features:
 * Stateless environment, but can be connected to storage to persist data
 * Orchestration possible with Durable functions, chaining functions together and maintaining state.
 
-Key difference from Azure Logic Apps: Azure is a serverless compute service, not meant to be a long-running business-logic process that connects with other services. 
+Key difference from Azure Logic Apps: Azure is a serverless compute service, not meant to be a long-running business-logic process that connects with other services.
 
 ### Azure Logic Apps
 
@@ -247,65 +247,31 @@ Features:
 
 ### Azure Monitor
 
-Definition
+Definition: Platform to collect, analyze, visualize, and take action based on data from your entire Azure **and on-premise environment**
 
 Features:
 
-* 
-* 
-* 
-* 
-* 
-* 
+* Monitor applications, integrating them with PagerDuty, Jira, or Azure DevOps
+* Monitor and optimize your infrastructure, including VMs, K8s, and Storage
+* Monitor and diagnose your network, trigger packet capture or analyze routing issues
+* Supports an extensive query language to analyze and get insights from operational data
+* Visualize, analyze, gain insights, and set alerts based on monitoring data
 
-### 
+Application Insights uses Azure Monitor under the hood
 
-Definition
+### Azure Service Health
 
-Features:
+Definition: A personalized view of Azure services, regions, and resources health.
 
-* 
-* 
-* 
-* 
-* 
-* 
-
-### 
-
-Definition
+status.azure.com does **not** provide the full picture. as its main informational dashabord
 
 Features:
 
-* 
-* 
-* 
-* 
-* 
-* 
+* Both major and smaller health displays, localized to issues that affect you
+* Peronalizable to services and regions that are interesting to you
+* Set up alerts to help triage outages
+* Provides official incident reports and Root Cause Analyses (RCAs)
+* Advertises **Planned Maintenance** that can affect availability
+* Publishes **Health Advisories** that include service retirements (sunsetting) or breaking changes.
 
-### 
-
-Definition
-
-Features:
-
-* 
-* 
-* 
-* 
-* 
-* 
-
-### 
-
-Definition
-
-Features:
-
-* 
-* 
-* 
-* 
-* 
-* 
+Key difference with status.azure.com: The status dashboard is **not** personalized and not granular to issues that might affect you directly.
