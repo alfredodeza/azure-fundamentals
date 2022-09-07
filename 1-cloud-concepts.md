@@ -2,12 +2,13 @@
 
 LP: https://docs.microsoft.com/en-us/learn/paths/az-900-describe-cloud-concepts/
 
-Identify Cloud Computing benefits, use SHEAD:
+Identify Cloud Computing benefits, use GASHED:
 
+* Geo-distribution
+* Agility
 * Scalability
 * High Availability
 * Elasticity
-* Agility
 * Disaster Recovery
 
 
